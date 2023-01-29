@@ -1,0 +1,349 @@
+{
+    "LFBD": {
+        "sid": {
+            "05": {
+                "CNA5Q": {
+                    "rnav": true,
+                    "alt": 7000
+                },
+                "CNA5B": {
+                    "rnav": false,
+                    "alt": 7000
+                },
+                "VAVIX5Q": {
+                    "rnav": true,
+                    "alt": 7000
+                },
+                "VAVIX5B": {
+                    "rnav": false,
+                    "alt": 7000
+                },
+                "ROYAN5Q": {
+                    "rnav": true,
+                    "alt": 7000
+                },
+                "ROYAN5B": {
+                    "rnav": false,
+                    "alt": 7000
+                },
+                "SAU5Q": {
+                    "rnav": true,
+                    "alt": 7000
+                },
+                "SAU5B": {
+                    "rnav": false,
+                    "alt": 7000
+                },
+                "VAVIX5Z": {
+                    "rnav": false,
+                    "alt": 4000
+                },
+                "ROYAN5Z": {
+                    "rnav": false,
+                    "alt": 4000
+                },
+                "SAU5Z": {
+                    "rnav": false,
+                    "alt": 4000
+                }
+            },
+            "23": {
+                "CNA5P": {
+                    "rnav": true,
+                    "alt": 7000
+                },
+                "CNA5A": {
+                    "rnav": false,
+                    "alt": 7000
+                },
+                "VAVIX5P": {
+                    "rnav": true,
+                    "alt": 7000
+                },
+                "VAVIX5A": {
+                    "rnav": false,
+                    "alt": 7000
+                },
+                "ROYAN5P": {
+                    "rnav": true,
+                    "alt": 7000
+                },
+                "ROYAN5A": {
+                    "rnav": false,
+                    "alt": 7000
+                },
+                "SAU5P": {
+                    "rnav": true,
+                    "alt": 7000
+                },
+                "SAU5A": {
+                    "rnav": false,
+                    "alt": 7000
+                }
+            },
+            "11": {
+                "CNA5E": {
+                    "rnav": false,
+                    "alt": 7000
+                },
+                "VAVIX5E": {
+                    "rnav": false,
+                    "alt": 7000
+                },
+                "ROYAN5E": {
+                    "rnav": false,
+                    "alt": 7000
+                },
+                "SAU5E": {
+                    "rnav": false,
+                    "alt": 7000
+                }
+            },
+            "29": {
+                "CNA5R": {
+                    "rnav": true,
+                    "alt": 7000
+                },
+                "CNA5W": {
+                    "rnav": false,
+                    "alt": 7000
+                },
+                "VAVIX5R": {
+                    "rnav": true,
+                    "alt": 7000
+                },
+                "VAVIX5W": {
+                    "rnav": false,
+                    "alt": 7000
+                },
+                "ROYAN5R": {
+                    "rnav": true,
+                    "alt": 7000
+                },
+                "ROYAN5W": {
+                    "rnav": false,
+                    "alt": 7000
+                },
+                "SAU5R": {
+                    "rnav": true,
+                    "alt": 7000
+                },
+                "SAU5W": {
+                    "rnav": false,
+                    "alt": 7000
+                }
+            }
+        },
+        "star": {
+            "VAVIX1L": {
+                "rnav": true,
+                "iaf": "DIRAX",
+                "alt_iaf": 5000
+            },
+            "VAVIX1K": {
+                "rnav": false,
+                "iaf": "DIRAX",
+                "alt_iaf": 5000
+            },
+            "ROYAN1L": {
+                "rnav": true,
+                "iaf": "ETPAR",
+                "alt_iaf": 5000
+            },
+            "ROYAN1K": {
+                "rnav": false,
+                "iaf": "DIRAX",
+                "alt_iaf": 5000
+            },
+            "MIRBA1L": {
+                "rnav": true,
+                "iaf": "LIBRU",
+                "alt_iaf": 5000
+            },
+            "MIRBA1K": {
+                "rnav": false,
+                "iaf": "LIBRU",
+                "alt_iaf": 5000
+            },
+            "VELIN1L": {
+                "rnav": true,
+                "iaf": "LIBRU",
+                "alt_iaf": 5000
+            },
+            "VELIN1K": {
+                "rnav": false,
+                "iaf": "LIBRU",
+                "alt_iaf": 5000
+            },
+            "CNA1L": {
+                "rnav": true,
+                "iaf": "LIBRU",
+                "alt_iaf": 5000
+            },
+            "CNA1K": {
+                "rnav": false,
+                "iaf": "VAGNA",
+                "alt_iaf": 5000
+            },
+            "LMG1L": {
+                "rnav": true,
+                "iaf": "LIBRU",
+                "alt_iaf": 5000
+            },
+            "LMG1K": {
+                "rnav": false,
+                "iaf": "VAGNA",
+                "alt_iaf": 5000
+            }
+        }
+    },
+    "LFBE": {
+        "sid": {
+            "27": {
+                "BUGUS7W": {
+                    "rnav": true,
+                    "alt": null
+                },
+                "SECHE7W": {
+                    "rnav": true,
+                    "alt": null
+                },
+                "VELIN7W": {
+                    "rnav": true,
+                    "alt": null
+                }
+            },
+            "09": {
+                "BUGUS7E": {
+                    "rnav": true,
+                    "alt": null
+                },
+                "SECHE7E": {
+                    "rnav": true,
+                    "alt": null
+                },
+                "VELIN7E": {
+                    "rnav": true,
+                    "alt": null
+                }
+            }
+        },
+        "star": {
+            "27": {
+                "BE0907T": {
+                    "rnav": true,
+                    "iaf": "BE272",
+                    "alt_iaf": 2500
+                },
+                "BUGUS7T": {
+                    "rnav": true,
+                    "iaf": "IBE27",
+                    "alt_iaf": 2500
+                },
+                "RUMEL7T": {
+                    "rnav": true,
+                    "iaf": "IBE27",
+                    "alt_iaf": "2500"
+                },
+                "VELIN7T": {
+                    "rnav": true,
+                    "iaf": "BE271",
+                    "alt_iaf": 2500
+                }
+            },
+            "09": {
+                "BE0907P": {
+                    "rnav": true,
+                    "iaf": "BE092",
+                    "alt_iaf": 2500
+                },
+                "BUGUS7P": {
+                    "rnav": true,
+                    "iaf": "BE091",
+                    "alt_iaf": 2500
+                },
+                "RUMEL7P": {
+                    "rnav": true,
+                    "iaf": "BE092",
+                    "alt_iaf": "2500"
+                },
+                "VELIN7P": {
+                    "rnav": true,
+                    "iaf": "BE091",
+                    "alt_iaf": 2500
+                }
+            }
+        }
+    },
+    "LFBH": {
+        "sid": {
+            "27": {
+                "LUSON5E": {
+                    "rnav": false,
+                    "alt": null
+                },
+                "OLERO5E": {
+                    "rnav": false,
+                    "alt": null
+                }
+            },
+            "09": {
+                "LUSON5W": {
+                    "rnav": false,
+                    "alt": null
+                },
+                "OLERO5W": {
+                    "rnav": false,
+                    "alt": null
+                }
+            }
+        },
+        "star": {
+            "LUSON6C": {
+                "rnav": true,
+                "iaf": "BH092",
+                "alt_iaf": 5000
+            },
+            "MAREN6C": {
+                "rnav": true,
+                "iaf": "BH091",
+                "alt_iaf": 5000
+            },
+            "LUSON6D": {
+                "rnav": false,
+                "iaf": ["XERGI", "RL"],
+                "alt_iaf": 2500
+            },
+            "LUSON6L": {
+                "rnav": false,
+                "iaf": "RL",
+                "alt_iaf": 2500
+            },
+            "LUSON6M": {
+                "rnav": true,
+                "iaf": "XERGI",
+                "alt_iaf": 2500
+            },
+            "LUGEN6D": {
+                "rnav": false,
+                "iaf": ["XERGI", "RL"],
+                "alt_iaf": 2500
+            },
+            "MAREN6D": {
+                "rnav": false,
+                "iaf": ["DEGAX", "RL"],
+                "alt_iaf": 2500
+            },
+            "MAREN6L": {
+                "rnav": false,
+                "iaf": "RL",
+                "alt_iaf": 2500
+            },
+            "MAREN6M": {
+                "rnav": true,
+                "iaf": "DEGAX",
+                "alt_iaf": 2500
+            }
+        }
+    }
+}
