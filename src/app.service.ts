@@ -8,17 +8,25 @@ const fbw_api = "https://api.flybywiresim.com";
 
 @Injectable()
 export class AppService {
-    async atis(icao: any, res: any, req: any) {
+    async atis(icao: string, res: any, req: any) {
         // let metar_infos = await axios.get(`${fbw_api}/metar/${icao}?source=ms`).then(resp => resp.data);
-        return axios.get(`https://avwx.rest/api/metar/${icao}`, {
+        return axios.get(`https://avwx.rest/api/metar/${icao.toUpperCase()}`, {
             headers: {
                 Authorization: `Bearer ${process.env.KEY}`
             }
         }).then((resp) => {
-            return res.send(JSON.parse(resp['data']));
+            let data = JSON.parse(resp['data']);
+            let airport_departures = airac[icao.toUpperCase()].sid;
+            let airport_arivals = airac[icao.toUpperCase()].star;
+
+            let airport_runways = airac[icao.toUpperCase()].runways;
+        
+            let wind = data?.wind_direction.value;
+
+            return res.send(data);
         });
         
-        // let result = metar_json.match("(?<icao>(?:^[a-zA-Z]..[a-zA-Z]))(?:_(?<wing>(?:$..)))?");
+        // let result = metar_json.match("(?<icao>(?:^[a-zA-Z]..[a-zA-Z]))(?:_(?<wind>(?:$..)))?");
 
         // airac[icao].sid['05']
     }
