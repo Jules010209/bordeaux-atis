@@ -4,24 +4,23 @@ import * as airac from './airac.json';
 import { address } from 'ip';
 
 const axios = new Axios({ baseURL: `http://${address('public', 'ipv4')}:${process.env.PORT}` });
-const infos_api = "https://api.flybywiresim.com";
+const fbw_api = "https://api.flybywiresim.com";
 
 @Injectable()
 export class AppService {
     async atis(icao: any, res: any, req: any) {
-        // return axios.get(`http://${address('public', 'ipv4')}:${process.env.PORT}/data`).then(response => {
-        //     return res.send(JSON.parse(response.data));
-        // });
-
-        let metar_infos = await axios.get(`${infos_api}/metar/${icao}?source=ms`).then(resp => JSON.parse(resp.data));
+        // let metar_infos = await axios.get(`${fbw_api}/metar/${icao}?source=ms`).then(resp => resp.data);
+        return axios.get(`https://avwx.rest/api/metar/${icao}`, {
+            headers: {
+                Authorization: `Bearer ${process.env.KEY}`
+            }
+        }).then((resp) => {
+            return res.send(JSON.parse(resp['data']));
+        });
         
-        let metar_json = metar_infos['metar'];
-        
-        let regex: RegExp = /^LFBD 291530Z AUTO [0-9]+KT 340V080 9999 BKN035 06\/M02 Q1029 NOSIG$/i;
-        let result = regex.test(metar_json);
+        // let result = metar_json.match("(?<icao>(?:^[a-zA-Z]..[a-zA-Z]))(?:_(?<wing>(?:$..)))?");
 
         // airac[icao].sid['05']
-        return res.send(result);
     }
 
     async data(res: any) {
