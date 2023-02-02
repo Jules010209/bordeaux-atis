@@ -4,33 +4,54 @@ import * as airac from './airac.json';
 import { address } from 'ip';
 
 const axios = new Axios({ baseURL: `http://${address('public', 'ipv4')}:${process.env.PORT}` });
-const fbw_api = "https://api.flybywiresim.com";
 
 @Injectable()
 export class AppService {
     async atis(icao: string, res: any, req: any) {
-        // let metar_infos = await axios.get(`${fbw_api}/metar/${icao}?source=ms`).then(resp => resp.data);
-        return axios.get(`https://avwx.rest/api/metar/${icao.toUpperCase()}`, {
-            headers: {
-                Authorization: `Bearer ${process.env.KEY}`
-            }
-        }).then((resp) => {
-            let data = JSON.parse(resp['data']);
-            let airport_departures = airac[icao.toUpperCase()].sid;
-            let airport_arivals = airac[icao.toUpperCase()].star;
+        if (
+            icao.toUpperCase() === 'LFBD' ||
+            icao.toUpperCase() === 'LFBE' ||
+            icao.toUpperCase() === 'LFBH'
+        ) {
+            // let metar_infos = await axios.get(`${fbw_api}/metar/${icao}?source=ms`).then(resp => resp.data);
+            return axios.get(`https://avwx.rest/api/metar/${icao.toUpperCase()}`, {
+                headers: {
+                    Authorization: `Bearer ${process.env.KEY}`
+                }
+            }).then((resp) => {
+                let data = JSON.parse(resp['data']);
 
-            let airport_runways = airac[icao.toUpperCase()].runways;
-        
-            let wind = data?.wind_direction.value;
+                let airport_runways = airac[icao.toUpperCase()].runways;
+                
+                let wind_direction = data?.wind_direction.value;
+                let wind_speed = data?.wind_speed.value;
 
-            let wind_facing_runway = wind * Math.sin((wind - parseInt('030')) * Math.PI / 180);
+                let runways_score: { qfu_runway: string, score: number } [] = [];
 
-            return res.send(String(wind_facing_runway));
-        });
-        
-        // let result = metar_json.match("(?<icao>(?:^[a-zA-Z]..[a-zA-Z]))(?:_(?<wind>(?:$..)))?");
+                for(const qfu_runway of airport_runways) {
+                    let front_wind: number = wind_speed * Math.cos((wind_direction - qfu_runway) * Math.PI / 180);
+                    let side_wind: number = wind_speed * Math.sin((wind_direction - qfu_runway) * Math.PI / 180);
 
-        // airac[icao].sid['05']
+                    let runway_score: number = (front_wind - Math.abs(side_wind));
+
+                    runways_score.push({ qfu_runway: qfu_runway, score: runway_score });
+                }
+
+                runways_score.sort((a, b) => b.score - a.score);
+
+                let runway_in_use: number = airac[icao.toUpperCase()].solved_runways[runways_score[0].qfu_runway];
+
+                let response_json = {
+                    runway_in_use: runway_in_use,
+                    sid: airac[icao.toUpperCase()].sid[runway_in_use],
+                    star: airac[icao.toUpperCase()].star[runway_in_use] ?? airac[icao.toUpperCase()].star
+                }
+
+                return res.status(200).json(response_json).end();
+            });
+        } else {
+            throw new BadRequestException();
+        }
     }
 
     async data(res: any) {

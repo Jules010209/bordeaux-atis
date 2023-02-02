@@ -3,6 +3,8 @@ import { AppModule } from './app.module';
 import { config } from 'dotenv';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
+import { version } from '../package.json';
+
 config();
 
 async function bootstrap() {
@@ -11,12 +13,15 @@ async function bootstrap() {
     const config = new DocumentBuilder()
         .setTitle('Bordeaux Atis')
         .setDescription('Api to create atis')
-        .setVersion('1.0')
+        .setVersion(version)
+        .addApiKey({ name: 'X-API-KEY', type: 'apiKey', in: 'header' }, 'X-API-KEY')
         .build();
 
     let document = SwaggerModule.createDocument(app, config);
 
-    SwaggerModule.setup('docs', app, document);
+    SwaggerModule.setup('docs', app, document, {
+        customSiteTitle: 'Bordeaux Atis API',
+    });
 
     await app.listen(parseInt(process.env.PORT));
 }
