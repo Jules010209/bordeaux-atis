@@ -23,17 +23,9 @@ export class AppService {
         
             let wind = data?.wind_direction.value;
 
-            let qfe_func = (temperature: number, qnh: number, altitude: number) => {
-                var T0: any = temperature + 273.15;
-                
-                var qfe: number = 1013.25 * Math.pow(Math.pow((qnh / 1013.25), 0.190263189) + ((altitude * -0.0065) / T0), 5.255877432);
-                
-                return Number(Math.round(qfe + 'e1') + 'e-1');
-            }
+            let wind_facing_runway = wind * Math.sin((wind - parseInt('030')) * Math.PI / 180);
 
-            let qfe = qfe_func(data?.temperature.value, data?.altimeter.value, airac[icao.toUpperCase()].altitude);
-
-            return res.send(String(qfe));
+            return res.send(String(wind_facing_runway));
         });
         
         // let result = metar_json.match("(?<icao>(?:^[a-zA-Z]..[a-zA-Z]))(?:_(?<wind>(?:$..)))?");
