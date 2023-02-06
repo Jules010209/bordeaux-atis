@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { AtisDto } from './dto/atis.dto';
 import { DataDto } from './dto/data.dto';
 import { ErrorDto } from './dto/error.dto';
+import { AirportDto } from './dto/airport.dto';
 
 @ApiTags('Api')
 @Controller()
@@ -37,7 +38,7 @@ export class AppController {
 
     @ApiSecurity('X-API-KEY')
     @ApiParam({ name: 'icao', type: String, example: 'LFBD', required: true })
-    @ApiOkResponse({ status: 200, type: DataDto })
+    @ApiOkResponse({ status: 200, type: AirportDto })
     @Get('/sid/:icao')
     sid(@Param('icao') icao: any, @Res() res: any) {
         return this.appService.sid(icao, res);
@@ -45,7 +46,7 @@ export class AppController {
 
     @ApiSecurity('X-API-KEY')
     @ApiParam({ name: 'icao', type: String, example: 'LFBH', required: true })
-    @ApiOkResponse({ status: 200, type: DataDto })
+    @ApiOkResponse({ status: 200, type: AirportDto })
     @Get('/star/:icao')
     star(@Param('icao') icao: any, @Res() res: any) {
         return this.appService.star(icao, res);

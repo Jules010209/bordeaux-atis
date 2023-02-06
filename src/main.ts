@@ -21,6 +21,7 @@ async function bootstrap() {
 
     SwaggerModule.setup('docs', app, document, {
         customSiteTitle: 'Bordeaux Atis API',
+        customfavIcon: 'https://www.bordeaux.aeroport.fr/themes/custom/adbm_theme/favicon.ico',
     });
 
     await app.listen(parseInt(process.env.PORT));
